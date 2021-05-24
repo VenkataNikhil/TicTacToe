@@ -10,12 +10,14 @@ export class AppComponent {
   title = 'tic-tac-toe';
 
   winMessage:string = '';
+  isFilled:boolean = false;
   isCross = false;
   itemArray:string[] = new Array(9).fill('empty');
 
   constructor(private toastr: ToastrService) {}
 
   handleClick(itemNumber: number) {
+
     if (this.winMessage) {
       return this.toastr.success(this.winMessage);
     }
@@ -29,6 +31,11 @@ export class AppComponent {
     }
 
     this.checkIsWinner();
+
+    if(!this.itemArray.includes('empty') && this.winMessage === ''){
+      this.checkIfFilled();
+    }
+
   }
 
   checkIsWinner = () => {
@@ -89,4 +96,7 @@ export class AppComponent {
     this.isCross = false;
     this.itemArray = new Array(9).fill('empty');
   };
+  checkIfFilled = () => {
+    this.isFilled = true;
+  }
 }
