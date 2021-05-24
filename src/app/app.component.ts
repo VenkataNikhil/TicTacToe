@@ -11,7 +11,7 @@ export class AppComponent {
 
   winMessage:string = '';
   isFilled:boolean = false;
-  isCross = false;
+  isCross:boolean = false;
   itemArray:string[] = new Array(9).fill('empty');
 
   constructor(private toastr: ToastrService) {}
@@ -96,7 +96,9 @@ export class AppComponent {
     this.isCross = false;
     this.itemArray = new Array(9).fill('empty');
   };
+
   checkIfFilled = () => {
+    // Checking if game is Draw
     this.isFilled = true;
   }
 }
