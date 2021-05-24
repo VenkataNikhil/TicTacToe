@@ -1,4 +1,4 @@
-<h2 class="text-center"> Tic Tac Toe </h2>
+<h2 class="text-center">Tic Tac Toe</h2>
 <div class="container">
   <div class="row justify-content-center align-items-center">
     <div class="col col-lg-6">
@@ -23,7 +23,17 @@
     </div>
 
     <div class="col col-lg-6 text-center" *ngIf="winMessage">
-      <h1 class="text-uppercase">Game Over {{ winMessage }}</h1>
+      <h1 class="text-uppercase">Game Over {{ winMessage }}.</h1>
+      <button
+        (click)="reloadGame()"
+        class="btn btn-danger text-uppercase pl-5 pr-5"
+      >
+        Reload Game
+      </button>
+    </div>
+
+    <div class="col col-lg-6 text-center" *ngIf="isFilled">
+      <h1 class="text-uppercase">Game has been a DRAW.</h1>
       <button
         (click)="reloadGame()"
         class="btn btn-danger text-uppercase pl-5 pr-5"
